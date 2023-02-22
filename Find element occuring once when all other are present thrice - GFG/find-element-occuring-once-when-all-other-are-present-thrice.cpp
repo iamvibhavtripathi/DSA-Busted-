@@ -12,7 +12,7 @@ class Solution {
   public:
   public:
     int singleElement(int arr[] ,int N) {
-        vector<int> ans(33);
+        vector<int> ans(32);
         for(int i = 0;i<N;i++)
         {
             int k = 0, it=arr[i]+1e9;
@@ -26,7 +26,7 @@ class Solution {
             }
         }
         int temp = 0;
-        for(int i=0;i<33;i++)
+        for(int i=0;i<32;i++)
             if(ans[i]==1)
                 temp+=(1<<i);
         return temp-1e9;
