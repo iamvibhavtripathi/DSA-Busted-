@@ -5,9 +5,10 @@ using namespace std;
 // } Driver Code Ends
 class Solution{   
 public:
-    string oddEven(int N){
+    string oddEven(int n){
         // code here 
-        return (N%2==0)? "even" : "odd";
+            return (!(n & 1))? "even" : "odd";
+ 
     }
 };
 
