@@ -31,6 +31,7 @@ class Solution
         // Your code here
         double profit=0;
         sort(arr,arr+n,cmp);
+        
         for(int i=0; i<n && W!=0; i++){
              profit += arr[i].value * (1.0 * min(arr[i].weight, W) / arr[i].weight);
             W-=min(arr[i].weight,W);
