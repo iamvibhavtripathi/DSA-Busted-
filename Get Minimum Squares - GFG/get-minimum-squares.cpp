@@ -35,13 +35,28 @@ class Solution{
           dp[n]=ans;
           return dp[n];
       }
+      
+      int solveTab(int n){
+          vector<int>dp(n+1,INT_MAX);
+          //vase case
+          dp[0]=0;
+          int ans=n;
+          for(int i=1; i<=n; i++){
+              for(int j=1; j*j<=n; j++){
+                  if(i-(j*j)>=0)
+                  dp[i]=min(dp[i],1+dp[i-(j*j)]);
+              }
+          }
+          return dp[n];
+      }
 	public:
 	int MinSquares(int n)
 	{
 	    // Code here
 	   // return solve(n);
-	   vector<int>dp(n+1,-1);
-	   return solveMemo(n,dp);
+	   //vector<int>dp(n+1,-1);
+	   //return solveMemo(n,dp);
+	   return solveTab(n);
 	}
 };
 
