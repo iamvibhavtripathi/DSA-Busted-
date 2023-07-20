@@ -10,30 +10,21 @@ class Solution{
 	long long countTriplets(long long arr[], int n, long long sum)
 	{
 	    // Your code goes here
-	            sort(arr,arr+n);    //Sorted Array
-        if(n < 3){    //Base case 1
-            return {};
-        }
-
-	    long long cnt=0;
+	    long long ans=0;
+	    sort(arr,arr+n);
 	    for(int i=0; i<n; i++){
-	        int target=sum-arr[i];
-	        int j=i+1, k=n-1;
-	        int s=0;
-	        while(j<k){
-	            s=arr[j] + arr[k];
-	            if(s<target) {
-	                cnt+=(k-j);
-	                j++;
-	                
+	        long long low=i+1, high=n-1,target=sum-arr[i];
+	        while(low<high){
+	            if(arr[low]+arr[high]<target){
+	                ans+=(high-low);
+	                low++;
 	            }
-	            else{
-	                k--;
+	            else if(arr[low]+arr[high]>=target){
+	                high--;
 	            }
-	            
 	        }
 	    }
-	    return cnt;
+	    return ans;
 	}
 		 
 
