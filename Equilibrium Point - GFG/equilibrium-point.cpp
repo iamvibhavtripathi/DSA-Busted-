@@ -4,6 +4,8 @@ using namespace std;
 
 
 // } Driver Code Ends
+
+#include<bits/stdc++.h>
 class Solution{
     public:
     // Function to find equilibrium point in the array.
@@ -12,38 +14,56 @@ class Solution{
     int equilibriumPoint(long long a[], int n) {
     
         // Your code here
-        //1491113
-        //2491213
-        // long long pre[n+1],post[n+1];
-        // pre[0]=a[0];
-        // for(int i=1; i<n; i++){
-        //     pre[i]=pre[i-1]+a[i];
+        // vector<long long> presum(n), ssum(n);
+        // long long s=0;
+        // for(long long i=0; i<n; i++){
+        //     s+=a[i];
+        //     presum.push_back(s);
         // }
-        // post[0]=a[n-1];
-        // for(int i=n-2,j=1; i>=0; i--){
-        //     post[j]=post[j-1]+a[i];
-        //     j++;
+        // s=0;
+        // for(long long i=n-1; i>=0; i--){
+        //     s+=a[i];
+        //     ssum.push_back(s);
         // }
-        // // for(int i=0; i<n; i++) cout<<pre[i]<<" ";
-        // // for(int i=0; i<n; i++) cout<<post[i]<<" ";
-        // for(int i=0, j=0; i<=n; i++){
-        //     if(pre[i]==post[j]){
-        //         return i+2;
+        // long long i=0;
+        // while(i<n){
+        //     cout<<presum[i];
+        //     i++;
+        // }
+        // cout<<endl;
+        // i=0;
+        // while(i<n){
+        //     cout<<ssum[i];
+        //     i++;
+        // }
+        // int left=0,right=0;
+        // while(left<n ){
+        //     if(presum[left]==ssum[right]){
+        //         return left+1;
+        //     }
+        //     else if(a[left]>a[right]){
+        //         while(a[left]>a[right]){
+        //             right++;
+        //         }
+        //     }
+        //     else {
+        //         while(a[right]>a[left]){
+        //             left++;
+        //         }
         //     }
         // }
-        
-        int lsum=0,rsum=0;
-        for(int i=0; i<n; i++){
-            rsum+=a[i];
-        }
-        for(int i=0; i<n; i++){
-            rsum-=a[i];
-            if(lsum==rsum){
-                return i+1;
-            }
-            lsum+=a[i];
+        long long right = 0, left = 0;
+        for(int i = 0; i < n; i++) right += a[i];
+        for(int i = 0; i < n; i++)
+        {
+            right -= a[i];
+            if(left == right) return i + 1;
+            left += a[i];
         }
         return -1;
+    
+
+        // return -1;
     }
 
 };
