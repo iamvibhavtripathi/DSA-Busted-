@@ -99,10 +99,10 @@ struct Node
 class Solution{
     public:
     //Function to find the height of a binary tree.
-    int height(struct Node* root){
+    int height(struct Node* node){
         // code here 
-        if(!root) return 0;
-        return (max(height(root->left), height(root->right))+1);
+        if(!node) return NULL;
+        return 1+ max(height(node->left),height(node->right));
     }
 };
 
